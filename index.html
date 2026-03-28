@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurora Vision — See Beyond Obstacles</title>
+  <meta name="description" content="Aurora Vision: AI-powered smart glasses that detect obstacles beyond the reach of a white cane, helping blind and visually impaired people move freely and safely." />
+
+  <!-- Google Fonts: Orbitron (display) + Exo 2 (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <!-- Phosphor Icons (lightweight icon set) -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js" defer></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" aria-label="Aurora Vision home">
+        <span class="nav__logo-dot"></span>
+        AURORA<span class="nav__logo-accent">VISION</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#solution">Solution</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#mission">Mission</a></li>
+      </ul>
+      <button class="nav__cta" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">
+        Discover
+      </button>
+      <!-- Mobile hamburger -->
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="nav__mobile" id="mobileMenu" aria-hidden="true">
+      <a href="#problem" class="nav__mobile-link">Problem</a>
+      <a href="#solution" class="nav__mobile-link">Solution</a>
+      <a href="#features" class="nav__mobile-link">Features</a>
+      <a href="#how-it-works" class="nav__mobile-link">How It Works</a>
+      <a href="#gallery" class="nav__mobile-link">Gallery</a>
+      <a href="#mission" class="nav__mobile-link">Mission</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero" aria-label="Hero section">
+    <!-- Animated canvas particle background -->
+    <canvas class="hero__canvas" id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Ambient glow orbs -->
+    <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+    <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <!-- Badge -->
+      <div class="hero__badge fade-up">
+        <span class="hero__badge-dot"></span>
+        Enactus FSTT · 2026
+      </div>
+
+      <!-- Title -->
+      <h1 class="hero__title fade-up fade-up--delay-1">
+        AURORA<br /><span class="hero__title-accent">VISION</span>
+      </h1>
+      <p class="hero__tagline fade-up fade-up--delay-2">See Beyond Obstacles</p>
+      <p class="hero__sub fade-up fade-up--delay-3">
+        Smart glasses that detect obstacles beyond the reach of a white cane —<br class="break-desktop" />
+        guiding you through voice and vibration, in real time.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero__actions fade-up fade-up--delay-4">
+        <button class="btn btn--primary" onclick="document.getElementById('solution').scrollIntoView({behavior:'smooth'})">
+          <i class="ph ph-binoculars"></i>
+          Discover the Project
+        </button>
+        <button class="btn btn--ghost" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">
+          <i class="ph ph-play-circle"></i>
+          Watch Demo
+        </button>
+      </div>
+
+      <!-- Glasses hero image with glow -->
+      <div class="hero__visual fade-up fade-up--delay-5">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <img
+          src="images/glasses.png"
+          alt="Aurora Vision smart glasses — a pair of futuristic black glasses with yellow temples and a front-mounted camera module"
+          class="hero__glasses"
+          onerror="this.onerror=null; this.src='https://placehold.co/800x400/0B0B0F/7B61FF?text=Aurora+Vision+Glasses';"
+        />
+        <!-- Floating stat chips -->
+        <div class="hero__chip hero__chip--left fade-up fade-up--delay-5">
+          <i class="ph ph-activity"></i> Real-Time AI
+        </div>
+        <div class="hero__chip hero__chip--right fade-up fade-up--delay-5">
+          <i class="ph ph-vibrate"></i> Haptic Alerts
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll" aria-label="Scroll down">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ===================== STATS BAR ===================== -->
+  <div class="statsbar" aria-label="Project statistics">
+    <div class="statsbar__inner">
+      <div class="statsbar__item reveal">
+        <span class="statsbar__num">285M+</span>
+        <span class="statsbar__label">People with visual impairment worldwide</span>
+      </div>
+      <div class="statsbar__divider" aria-hidden="true"></div>
+      <div class="statsbar__item reveal">
+        <span class="statsbar__num">Real-Time</span>
+        <span class="statsbar__label">Obstacle detection with AI</span>
+      </div>
+      <div class="statsbar__divider" aria-hidden="true"></div>
+      <div class="statsbar__item reveal">
+        <span class="statsbar__num">360°</span>
+        <span class="statsbar__label">Spatial awareness at head level</span>
+      </div>
+      <div class="statsbar__divider" aria-hidden="true"></div>
+      <div class="statsbar__item reveal">
+        <span class="statsbar__num">2-in-1</span>
+        <span class="statsbar__label">Voice + vibration guidance system</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PROBLEM ===================== -->
+  <section class="section problem" id="problem" aria-label="The Problem">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__eyebrow">The Challenge</span>
+        <h2 class="section__title">The <span class="accent">Problem</span></h2>
+      </div>
+
+      <div class="problem__grid">
+        <!-- Left: icon illustration -->
+        <div class="problem__visual reveal">
+          <div class="problem__icon-wrap">
+            <div class="problem__icon-ring" aria-hidden="true"></div>
+            <!-- White cane SVG icon -->
+            <svg class="problem__cane-icon" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <line x1="60" y1="10" x2="30" y2="190" stroke="#7B61FF" stroke-width="5" stroke-linecap="round"/>
+              <ellipse cx="27" cy="193" rx="12" ry="5" fill="#7B61FF" opacity="0.5"/>
+              <!-- danger zone above cane reach -->
+              <rect x="10" y="5" width="100" height="40" rx="6" fill="#FF4D4D" opacity="0.12"/>
+              <text x="60" y="30" text-anchor="middle" fill="#FF4D4D" font-size="12" font-family="Exo 2, sans-serif" opacity="0.85">BLIND ZONE</text>
+              <line x1="10" y1="50" x2="110" y2="50" stroke="#FF4D4D" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"/>
+              <!-- head level arrow -->
+              <path d="M90 50 L90 20" stroke="#FF4D4D" stroke-width="1.5" marker-end="url(#arrowHead)" opacity="0.7"/>
+            </svg>
+            <!-- Warning badge -->
+            <div class="problem__badge">
+              <i class="ph ph-warning-octagon"></i> Head-Level Blind Zone
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: text -->
+        <div class="problem__text reveal">
+          <h3 class="problem__heading">White canes leave a dangerous gap</h3>
+          <p class="problem__body">
+            Traditional white canes are excellent tools — but they can only detect obstacles
+            at ground level. Objects at head or chest height, such as open cabinet doors,
+            hanging branches, or scaffolding bars, are completely invisible to the cane.
+          </p>
+          <p class="problem__body">
+            This gap in spatial awareness creates real daily risks: dangerous collisions,
+            loss of confidence, and reduced independence for millions of blind and
+            visually impaired people worldwide.
+          </p>
+          <ul class="problem__list" role="list">
+            <li><i class="ph ph-x-circle"></i> Cannot detect head-level obstacles</li>
+            <li><i class="ph ph-x-circle"></i> No alert for protruding objects</li>
+            <li><i class="ph ph-x-circle"></i> Limited range in complex environments</li>
+            <li><i class="ph ph-x-circle"></i> No real-time environmental awareness</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOLUTION ===================== -->
+  <section class="section solution" id="solution" aria-label="Our Solution">
+    <div class="solution__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__eyebrow">The Answer</span>
+        <h2 class="section__title">Our <span class="accent">Solution</span></h2>
+      </div>
+
+      <div class="solution__grid">
+        <!-- Glasses card -->
+        <div class="solution__card reveal">
+          <div class="solution__card-glow" aria-hidden="true"></div>
+          <img
+            src="images/glasses.png"
+            alt="Aurora Vision glasses render — premium smart glasses with AI camera module"
+            class="solution__glasses"
+            onerror="this.onerror=null; this.src='https://placehold.co/600x350/0D0D1A/7B61FF?text=Aurora+Vision';"
+          />
+          <!-- Tech specs overlay -->
+          <div class="solution__specs" aria-label="Technical specifications">
+            <div class="solution__spec">
+              <i class="ph ph-camera"></i>
+              <div>
+                <strong>HD Camera</strong>
+                <span>Front-mounted module</span>
+              </div>
+            </div>
+            <div class="solution__spec">
+              <i class="ph ph-cpu"></i>
+              <div>
+                <strong>Edge AI</strong>
+                <span>On-device inference</span>
+              </div>
+            </div>
+            <div class="solution__spec">
+              <i class="ph ph-speaker-high"></i>
+              <div>
+                <strong>Voice + Haptics</strong>
+                <span>Dual alert system</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="solution__text reveal">
+          <p class="solution__intro">
+            Aurora Vision is an AI-powered wearable that fills the critical blind spot
+            left by traditional mobility aids.
+          </p>
+          <p class="solution__body">
+            A front-mounted camera captures the environment continuously.
+            An embedded AI model detects obstacles in real time — at any height —
+            and immediately notifies the user through clear voice guidance and vibration alerts.
+          </p>
+          <p class="solution__body">
+            The result: a safer, more confident, more independent way to navigate
+            the world — no matter where the obstacle is.
+          </p>
+
+          <!-- Key differentiators -->
+          <div class="solution__diff">
+            <div class="solution__diff-item">
+              <i class="ph ph-check-circle"></i>
+              <span>Detects obstacles at all heights</span>
+            </div>
+            <div class="solution__diff-item">
+              <i class="ph ph-check-circle"></i>
+              <span>Works indoors and outdoors</span>
+            </div>
+            <div class="solution__diff-item">
+              <i class="ph ph-check-circle"></i>
+              <span>Lightweight, wearable design</span>
+            </div>
+            <div class="solution__diff-item">
+              <i class="ph ph-check-circle"></i>
+              <span>Companion mobile app included</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES ===================== -->
+  <section class="section features" id="features" aria-label="Features">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__eyebrow">Capabilities</span>
+        <h2 class="section__title">Built-In <span class="accent">Features</span></h2>
+        <p class="section__desc">
+          Every component of Aurora Vision is engineered to maximize safety,
+          usability, and independence.
+        </p>
+      </div>
+
+      <div class="features__grid">
+        <!-- Card 1 -->
+        <article class="feature-card reveal" aria-label="Real-Time Detection feature">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon-glow"></div>
+            <i class="ph ph-eye feature-card__icon"></i>
+          </div>
+          <h3 class="feature-card__title">Real-Time Detection</h3>
+          <p class="feature-card__desc">
+            The camera continuously scans the environment and the AI identifies obstacles
+            at head, chest, and ground level — within milliseconds.
+          </p>
+          <div class="feature-card__line" aria-hidden="true"></div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="feature-card reveal" aria-label="Voice Guidance feature">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon-glow feature-card__icon-glow--cyan"></div>
+            <i class="ph ph-microphone feature-card__icon feature-card__icon--cyan"></i>
+          </div>
+          <h3 class="feature-card__title">Voice Guidance</h3>
+          <p class="feature-card__desc">
+            Clear, natural voice alerts tell the user what obstacle is ahead and
+            its direction — left, right, or center — in real time.
+          </p>
+          <div class="feature-card__line feature-card__line--cyan" aria-hidden="true"></div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="feature-card reveal" aria-label="Vibration Alerts feature">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon-glow"></div>
+            <i class="ph ph-vibrate feature-card__icon"></i>
+          </div>
+          <h3 class="feature-card__title">Vibration Alerts</h3>
+          <p class="feature-card__desc">
+            Haptic feedback provides a secondary, discreet alert channel — useful
+            in noisy environments or when the user prefers silent mode.
+          </p>
+          <div class="feature-card__line" aria-hidden="true"></div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="feature-card reveal" aria-label="AI-Powered Vision feature">
+          <div class="feature-card__icon-wrap" aria-hidden="true">
+            <div class="feature-card__icon-glow feature-card__icon-glow--cyan"></div>
+            <i class="ph ph-brain feature-card__icon feature-card__icon--cyan"></i>
+          </div>
+          <h3 class="feature-card__title">AI-Powered Vision</h3>
+          <p class="feature-card__desc">
+            Embedded computer vision models classify obstacles, estimate distance,
+            and adapt to changing environments — all without an internet connection.
+          </p>
+          <div class="feature-card__line feature-card__line--cyan" aria-hidden="true"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="section how" id="how-it-works" aria-label="How It Works">
+    <div class="how__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__eyebrow">The Process</span>
+        <h2 class="section__title">How It <span class="accent">Works</span></h2>
+      </div>
+
+      <div class="how__steps">
+        <!-- Step 1 -->
+        <div class="how__step reveal" aria-label="Step 1: Camera captures environment">
+          <div class="how__step-num" aria-hidden="true">01</div>
+          <div class="how__step-icon" aria-hidden="true">
+            <i class="ph ph-camera-slash"></i>
+            <!-- Note: ph-camera -->
+            <i class="ph ph-camera"></i>
+          </div>
+          <h3 class="how__step-title">Camera Captures the Environment</h3>
+          <p class="how__step-desc">
+            A compact HD camera on the glasses frame continuously records
+            the scene ahead — at eye level and beyond.
+          </p>
+        </div>
+
+        <!-- Connector -->
+        <div class="how__connector" aria-hidden="true">
+          <div class="how__connector-line"></div>
+          <i class="ph ph-arrow-right how__connector-arrow"></i>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how__step reveal" aria-label="Step 2: AI detects obstacles">
+          <div class="how__step-num" aria-hidden="true">02</div>
+          <div class="how__step-icon" aria-hidden="true">
+            <i class="ph ph-cpu"></i>
+          </div>
+          <h3 class="how__step-title">AI Detects Obstacles Instantly</h3>
+          <p class="how__step-desc">
+            A trained neural network processes the video feed on-device,
+            identifying obstacles and estimating their distance — in real time.
+          </p>
+        </div>
+
+        <!-- Connector -->
+        <div class="how__connector" aria-hidden="true">
+          <div class="how__connector-line"></div>
+          <i class="ph ph-arrow-right how__connector-arrow"></i>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how__step reveal" aria-label="Step 3: User receives alerts">
+          <div class="how__step-num" aria-hidden="true">03</div>
+          <div class="how__step-icon how__step-icon--cyan" aria-hidden="true">
+            <i class="ph ph-bell-ringing"></i>
+          </div>
+          <h3 class="how__step-title">User Receives Voice & Vibration Alerts</h3>
+          <p class="how__step-desc">
+            Immediate audio cues and haptic pulses notify the user of the obstacle
+            — direction, type, and proximity — keeping them safe and informed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section class="section gallery" id="gallery" aria-label="Project Gallery">
+    <div class="container">
+      <div class="section__header reveal">
+        <span class="section__eyebrow">The Prototype</span>
+        <h2 class="section__title">Project <span class="accent">Gallery</span></h2>
+        <p class="section__desc">Click any image to explore in full view.</p>
+      </div>
+
+      <div class="gallery__grid">
+        <!-- Image 1 -->
+        <button
+          class="gallery__item gallery__item--wide reveal"
+          aria-label="Open smart glasses prototype image"
+          data-src="images/glasses.png"
+          data-caption="Aurora Vision — Smart Glasses Prototype"
+          data-fallback="https://placehold.co/900x500/0D0D1A/7B61FF?text=Aurora+Vision+Glasses"
+        >
+          <img
+            src="images/glasses.png"
+            alt="Aurora Vision smart glasses prototype with camera module"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://placehold.co/900x500/0D0D1A/7B61FF?text=Aurora+Vision+Glasses';"
+          />
+          <div class="gallery__overlay" aria-hidden="true">
+            <i class="ph ph-arrows-out"></i>
+            <span>Smart Glasses Prototype</span>
+          </div>
+        </button>
+
+        <!-- Image 2 -->
+        <button
+          class="gallery__item reveal"
+          aria-label="Open mobile app screenshot"
+          data-src="images/app.jpeg"
+          data-caption="Aurora Vision — Mobile Companion App"
+          data-fallback="https://placehold.co/500x500/0D0D1A/00D4FF?text=Aurora+App"
+        >
+          <img
+            src="images/app.jpeg"
+            alt="Aurora Vision companion mobile app screenshot showing main interface"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://placehold.co/500x500/0D0D1A/00D4FF?text=Aurora+App';"
+          />
+          <div class="gallery__overlay" aria-hidden="true">
+            <i class="ph ph-arrows-out"></i>
+            <span>Mobile Companion App</span>
+          </div>
+        </button>
+
+        <!-- Image 3 -->
+        <button
+          class="gallery__item reveal"
+          aria-label="Open prototype close-up image"
+          data-src="images/glasses.png"
+          data-caption="Aurora Vision — Prototype Close-Up"
+          data-fallback="https://placehold.co/500x500/0D0D1A/7B61FF?text=Prototype+Close-Up"
+        >
+          <img
+            src="images/glasses.png"
+            alt="Close-up view of Aurora Vision prototype showing camera and sensor module"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://placehold.co/500x500/0D0D1A/7B61FF?text=Prototype+Close-Up';"
+          />
+          <div class="gallery__overlay" aria-hidden="true">
+            <i class="ph ph-arrows-out"></i>
+            <span>Prototype Close-Up</span>
+          </div>
+        </button>
+
+        <!-- Image 4 -->
+        <button
+          class="gallery__item gallery__item--wide reveal"
+          aria-label="Open futuristic concept render"
+          data-src="images/glasses.png"
+          data-caption="Aurora Vision — Futuristic Concept Render"
+          data-fallback="https://placehold.co/900x500/0D0D1A/00D4FF?text=Concept+Render"
+        >
+          <img
+            src="images/glasses.png"
+            alt="Futuristic concept render of Aurora Vision glasses with glowing accents"
+            loading="lazy"
+            onerror="this.onerror=null; this.src='https://placehold.co/900x500/0D0D1A/00D4FF?text=Concept+Render';"
+          />
+          <div class="gallery__overlay" aria-hidden="true">
+            <i class="ph ph-arrows-out"></i>
+            <span>Futuristic Concept Render</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LIGHTBOX (hidden by default) ===================== -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image lightbox" aria-hidden="true">
+    <div class="lightbox__backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox__content">
+      <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox">
+        <i class="ph ph-x"></i>
+      </button>
+      <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+      <p class="lightbox__caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <!-- ===================== MISSION ===================== -->
+  <section class="section mission" id="mission" aria-label="Our Mission">
+    <div class="mission__bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="mission__inner reveal">
+        <span class="section__eyebrow">Why We Build This</span>
+        <h2 class="mission__title">
+          Our <span class="accent">Mission</span>
+        </h2>
+        <blockquote class="mission__quote">
+          "Our mission is to make mobility safer, more independent, and more accessible
+          for blind and visually impaired people — by bridging the gap between human
+          potential and assistive technology."
+        </blockquote>
+        <p class="mission__body">
+          Aurora Vision was born from a conviction that disability should never
+          limit freedom. As part of the Enactus FSTT programme, we are a team of
+          students committed to building technology that creates real, lasting social impact.
+        </p>
+        <!-- Call to action -->
+        <div class="mission__actions">
+          <button class="btn btn--primary" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">
+            <i class="ph ph-images"></i> See the Prototype
+          </button>
+          <a href="mailto:enactusfstt@gmail.com" class="btn btn--ghost">
+            <i class="ph ph-envelope"></i> Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <!-- Brand -->
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="footer__logo-dot"></span>
+            AURORA<span class="footer__logo-accent">VISION</span>
+          </div>
+          <p class="footer__tagline">See Beyond Obstacles</p>
+          <p class="footer__made-by">Created by <strong>Enactus FSTT</strong></p>
+        </div>
+
+
+        <!-- Contact & Social -->
+        <div class="footer__contact">
+          <h4 class="footer__contact-title">Get in Touch</h4>
+          <a href="mailto:enactusfstt@gmail.com" class="footer__email">
+            <i class="ph ph-envelope"></i>
+            aurora@enactusfstt.ma
+          </a>
+          <!-- Social icon placeholders — replace href with real URLs -->
+          <div class="footer__socials" aria-label="Social media links">
+            <a href="#" class="footer__social" aria-label="LinkedIn" rel="noopener">
+              <i class="ph ph-linkedin-logo"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="Instagram" rel="noopener">
+              <i class="ph ph-instagram-logo"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="GitHub" rel="noopener">
+              <i class="ph ph-github-logo"></i>
+            </a>
+            <a href="#" class="footer__social" aria-label="YouTube" rel="noopener">
+              <i class="ph ph-youtube-logo"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          &copy; <span id="year"></span> Aurora Vision — Enactus FSTT. All rights reserved.
+        </p>
+        <p class="footer__legal">Built with purpose, engineered with care.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
